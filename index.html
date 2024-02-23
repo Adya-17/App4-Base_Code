@@ -17,7 +17,7 @@ Timothy Riedel
 triedel@utexas.edu
  
 Brief Description of Goal of Code:
-blah, blah, blah,
+This is a series of questions that tests whether or not an individual's symptoms are of a headache or a concussion. 
  
 Known Issues:
 blah, blah, blah, blah
@@ -37,8 +37,30 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 </head> 
 
 <script>
+	// this count stores  the total clicks made for either head or concussion
+	 var headache_count = 0;
+         var concussion_count = 0;
 
-	//YOUR JAVASCRIPT GOES HERE
+	// adds up all the answers that indicate headache
+	function headacheAdd(){
+		headache_count = headache_count + 1;
+		alert(headache_count);
+
+	}
+	// adds up all the answers that indicate concussion
+	function concussionAdd(){
+		concussion_count = concussion_count + 1;
+	}
+	// this will get my final percentages
+	function getResults() {
+	// this will ensure that my results will display on the page I want it to display on
+	var resultText = document.getElementById("results");
+	// this makes my percentage calculations
+		var headachePercent = (headache_count / 4 ) * 100;
+		var concussionPercent = (concussion_count / 4 ) * 100;
+	// this will display my results
+		resultText.innerHTML = "Probability it is headache =" + headachePercent + "<br> Probability it is a concussion =" + concussionPercent;
+	} 
 
 </script>	
 
@@ -67,9 +89,109 @@ https://stackoverflow.com/questions/8211128/multiple-distinct-pages-in-one-html-
 </style>
 
 <body>
+<div id="header" class="w3-container w3-flat-carrot">
+	<h1>Do you have a headache or a concussion?</h1>
+</div>
+
+<!--This is the introductory page-->
+<div id="content" class="w3-container">
+	<p>Headaches and concussions involve pain associated with your head, yet there are some stark differences between the two conditions. Answer a few questions to find out which condition's symptoms you may be experiencing! </p>
+	<!--This is the button that allows the user to go to the questions-->
+	<a href="#one" class="w3-btn w3-grey w3-round"> Get Started </a>
+	<!--This is the disclaimer text-->
+	<p>The following code has been developed by students and/or researchers of the Freshman Research Initiative DIY Diagnostics Stream at The University of Texas at Austin.  This code is shared for demonstration purposes and should not be considered a product -- it is for entertainment purposes only. Any user of this code 			does so at their own risk. Members of the DIY Stream, FRI, and The University of Texas system are not liable for anything related to this code.</p>
+	<p>THIS CODE SHOULD NOT BE USED TO DIAGNOSE ANY KIND OF MEDICAL CONDITION.</p>
+
+<!--This is where my page one starts-->
+<div class="page" id="one">
+	<div id="header" class="w3-container w3-flat-carrot">
+		<h1>Question 1</h1> 
+	</div>
 	
-	<!-- HERE IS WHERE ALL OF YOUR HTML PAGES GO -->
-	REPLACE THIS TEXT
+    	<div id="content" class="w3-container">
+        <p>Are you experiencing pain throughout your head and not simply in one spot?</p> <!--This is my question 1-->
+		<!--This is where my user can answer the question via yes or no buttons-->
+		<!--My user will be sent to the next page after answering the question-->
+		<a href="#two"  onclick="headacheAdd();" class="w3-btn w3-black"> Yes</a>
+		<!--If the user answers yes to this question, it will add one to the headache count-->
+		<a href="#two"  onclick="concussionAdd();" class="w3-btn w3-black">No</a>
+		<!--If the user answers no to this question, it will add one to the concussion count-->
+
+    	</div>
+</div> <!--This is the end of my page 1 question and content-->
+
+<!--This is the start of my page 2-->
+<div class="page" id="two">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 2</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Did you at one point experience a loss of consciousness?</p> <!--This is my question 2-->
+		<!--This is where my user can answer the question via yes or no buttons-->
+		<!--My user will be sent to the next page after answering the question-->
+		<a href="#three"  onclick="concussionAdd();" class="w3-btn w3-black">Yes</a>
+		<!--If the user answers yes to this question, it will add one to the concussion count-->
+		<a href="#three"  onclick="headacheAdd();" class="w3-btn w3-black"> No </a>
+		<!--If the user answers no to this question, it will add one to the headache count-->
+         	
+	</div>
+</div> <!--This is the end of my page 2 question and content-->
+
+<!--This is the start of my page 3-->
+<div class="page" id="three">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 3</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Did you experience any dehydration beforehand?</p> <!--This is my question 3-->
+		<!--This is where my user can answer the question via yes or no buttons-->
+		<!--My user will be sent to the next page after answering the question-->
+		<a href="#four"  onclick="headacheAdd();" class="w3-btn w3-black"> Yes</a>
+		<!--If the user answers yes to this question, it will add one to the headache count-->
+		<a href="#four"  onclick="concussionAdd();" class="w3-btn w3-black">No</a>
+		<!--If the user answers no to this question, it will add one to the concussion count-->
+         	
+	</div>
+</div> <!--This is the end of my page 3 question and content-->	
+
+<!--This is the start of my page 4-->
+<div class="page" id="four">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Question 4</h1>
+	</div>
+	
+	<div id="content" class="w3-container">
+		<p>Do you have any blurred or double vision?</p> <!--This is my question 4-->
+		<!--This is where my user can answer the question via yes or no buttons-->
+		<!--My user will be sent to the next page after answering the question-->
+		<a href="#five"  onclick="concussionAdd();" class="w3-btn w3-black">Yes</a>
+		<!--If the user answers yes to this question, it will add one to the concussion count-->
+		<a href="#five"  onclick="headacheAdd();" class="w3-btn w3-black"> No </a>
+		<!--If the user answers no to this question, it will add one to the headache count-->
+		
+         	
+	</div>
+</div> <!--This is the end of my page 4 question and content-->
+
+<!--This is the start of my results page-->
+<div class="page" id="five">
+	<div class="w3-container w3-flat-carrot">
+		<h1>Results!</h1>
+	</div>
+	<div id="content" class="w3-container">
+		<p id="results" </p>
+		<a href="#five" onclick="getResults()" class="w3-btn w3-black"> Click Here! </a>
+
+	</div>
+	
+</div> <!--This is the end of my results page-->
+
+<!--This is where my footer is, given already>
+<footer class="w3-bottom w3-container w3-flat-carrot">
+	<p>DIY!</p>
+</footer>
 	
 </body>
 </html>
